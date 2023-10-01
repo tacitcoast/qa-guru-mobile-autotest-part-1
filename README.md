@@ -17,12 +17,14 @@
 7. Сделать сборку в дженкинсе
 
 ## Решение
-- [Страничка «Get Started» на браузерстек (выбирать язык Python)](https://app-automate.browserstack.com/dashboard/v2/quick-start/get-started)
-- [Дешбоард на браузерстек](https://app-automate.browserstack.com/dashboard/v2)
-- [Инспектор на браузерстек](https://app-live.browserstack.com)
-- [Как загрузить свою версию апки в браузерстек](https://github.com/qa-guru/mobile-tests-13-py/tree/demo-selene-appium-with-browserstack-android#how-to-upload-your-own-version-of-application-to-browserstack)
+
+- [Проект в этой ветке](https://github.com/tacitcoast/qa-guru-mobile-autotest-part-1)
+- [Сборка в Jenkins](https://jenkins.autotests.cloud/job/student-malinovskaia-anna-qa-guru-6-23-mobile/6/allure/)
 
 ___
 ## Дополнительные материалы
 
-[Cookies](https://developer.mozilla.org/ru/docs/Web/HTTP/Cookies)
+- [Страничка «Get Started» на браузерстек (выбирать язык Python)](https://app-automate.browserstack.com/dashboard/v2/quick-start/get-started)
+- [Дешбоард на браузерстек](https://app-automate.browserstack.com/dashboard/v2)
+- [Инспектор на браузерстек](https://app-live.browserstack.com)
+- [Как загрузить свою версию апки в браузерстек](https://github.com/qa-guru/mobile-tests-13-py/tree/demo-selene-appium-with-browserstack-android#how-to-upload-your-own-version-of-application-to-browserstack)
