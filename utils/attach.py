@@ -29,3 +29,11 @@ def allure_attach_bstack_screenshot():
             name='screenshot',
             attachment_type=allure.attachment_type.PNG
         )
+
+
+def allure_attach_bstack_page_source():
+    allure.attach(
+        browser.driver.page_source,
+        name='screen xml dump',
+        attachment_type=allure.attachment_type.XML,
+    )

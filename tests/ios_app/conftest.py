@@ -11,7 +11,7 @@ from appium import webdriver
 def ios_mobile_management():
     options = XCUITestOptions().load_capabilities({
 
-        "app": configuration.settings.ios_app_url,
+        "app": configuration.settings.app_url,
 
         "deviceName": configuration.settings.ios_device,
         "platformName": configuration.settings.ios_platform,
