@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     browserstack_key: str
     browserstack_url: str = 'http://hub.browserstack.com/wd/hub'
     app_url: str = 'bs://sample.app'
-    ios_app_url: str = "bs://bfc9cb387aa35409d0506f4fa345e2ab8fd20135"
+    # ios_app_url: str = "bs://bfc9cb387aa35409d0506f4fa345e2ab8fd20135"
     project_name: str = 'Mobile Tests Lesson 1'
     build_name: str = 'browserstack-build-1'
     session_name: str = 'BStack first_test'
