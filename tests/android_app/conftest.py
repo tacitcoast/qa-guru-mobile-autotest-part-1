@@ -1,43 +1,48 @@
-from time import sleep
-
+import allure_commons
 import pytest
-from appium.options.android import UiAutomator2Options
-
+from selene import browser, support
+import project
 from appium import webdriver
-from selene import browser
-import os
-import config
+from appium.options.android import UiAutomator2Options
+import allure
 from utils import attach
 
 
 @pytest.fixture(scope='function', autouse=True)
-def android_mobile_management():
+def android_management():
     options = UiAutomator2Options().load_capabilities({
+        'platformName': 'android',
+        'platformVersion': project.config.android_version,
+        'deviceName': project.config.android_device,
 
-        'platformName': config.settings.android_platform,
-        'platformVersion': config.settings.android_version,
-        'deviceName': config.settings.android_device,
-
-        'app': config.settings.app_url,
+        'app': project.config.app_url,
 
         'bstack:options': {
-            'projectName': config.settings.project_name,
-            'buildName': config.settings.build_name,
-            'sessionName': config.settings.session_name,
+            'projectName': project.config.project_name,
+            'buildName': project.config.build_name,
+            'sessionName': project.config.session_name,
 
-            'userName': config.settings.browserstack_username,
-            'accessKey': config.settings.browserstack_key
+            'userName': project.config.browserstack_username,
+            'accessKey': project.config.browserstack_accesskey
         }
     })
 
-    browser.config.driver = webdriver.Remote(config.settings.browserstack_url, options=options)
+    with allure.step('init app session'):
+        browser.config.driver = webdriver.Remote(project.config.browserstack_url, options=options)
 
-    browser.config.timeout = float(os.getenv('timeout', '10.0'))
+    browser.config._wait_decorator = support._logging.wait_with(
+        context=allure_commons._allure.StepContext
+    )
 
     yield
 
-    attach.allure_attach_bstack_screenshot()
+    attach.attach_bstack_screenshot()
+
+    attach.attach_bstack_page_source()
 
     session_id = browser.driver.session_id
-    attach.allure_attach_bstack_video(session_id)
-    browser.quit()
+
+    with allure.step('tear down app session'):
+        browser.quit()
+
+    attach.attach_bstack_video(session_id)
